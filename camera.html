@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera Access Link</title>
+</head>
+<body>
+  <h2>📷 Camera Access Page</h2>
+  <video id="cam" autoplay playsinline></video>
+
+  <script>
+    async function startCam() {
+      try {
+        let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        document.getElementById("cam").srcObject = stream;
+      } catch (err) {
+        alert("Camera access denied: " + err);
+      }
+    }
+    startCam();
+  </script>
+</body>
+</html>
